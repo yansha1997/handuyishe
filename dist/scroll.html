@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜</title>
+	<link rel="stylesheet" href="css/scroll.min.css" />
+</head>
+<body>
+	<div id="pro2-content" class='clear_fix'>
+			<section class="left">
+				
+				<ul class='big'>
+					
+					<li><img src="img2/71min.jpg" alt="" /></li>
+					<li><img src="img2/129min.jpg" alt="" /></li>
+					<li><img src="img2/136min.jpg" alt="" /></li>
+					<li><img src="img2/134min.jpg" alt="" /></li>
+					<li><img src="img2/132min.jpg" alt="" /></li>
+					<img src="img2/92min.png" alt="" />
+					<div id="lt-mark"></div>
+					<div class="go"></div>
+				</ul>
+				<ul class="small">
+					<li><img src="img2/70min.jpg" alt="" /></li>
+					<li><img src="img2/8min.jpg" alt="" /></li>
+					<li><img src="img2/28min.jpg" alt="" /></li>
+					<li><img src="img2/52 min.jpg" alt="" /></li>
+					<li><img src="img2/19min.jpg" alt="" /></li>
+				</ul>
+				<p>
+					<i></i>
+				</p>
+				<ul class='magnifier'>
+					<li><img src="img2/73min.jpg" alt="" /></li>
+					<li><img src="img2/130min.jpg" alt="" /></li>
+					<li><img src="img2/135min.jpg" alt="" /></li>
+					<li><img src="img2/133min.jpg" alt="" /></li>
+					<li><img src="img2/133min.jpg" alt="" /></li>
+				</ul>
+			</section>
+			</div>
+			<script type="text/javascript" src="js/jquery-1.12.4.min.js" ></script>
+			<script>
+				//一、商品轮播
+				var bigimgs = document.querySelectorAll('.big li');   //大图
+				var smallimgs = document.querySelectorAll('.small li');  //小图
+				var num = smallimgs.length;  //图片数量
+				var index = num - 1;//初始化下标 
+				var magnifier = document.querySelector('.magnifier');
+				var mark = document.getElementById('lt-mark');
+				var go = document.querySelector('.go');
+				var bigPics = magnifier.children;
+				//遍历  小图   轮播
+				for(var i = 0;i < num;i ++){
+					smallimgs[i].index = i;
+					smallimgs[i].onmouseenter = function(){
+						index = this.index;
+						for(var i = 0;i < num;i ++){
+							bigimgs[i].style.opacity = 0;
+							bigPics[i].style.opacity = 0;
+							smallimgs[i].style.border = 0;
+						}
+						bigimgs[index].style.opacity = 1;
+						bigPics[index].style.opacity = 1;
+						smallimgs[index].style.border = '1px solid #000';
+					}
+				}
+				//鼠标移入遮罩层     
+				mark.onmouseenter = function(){
+					go.style.display = 'block';
+					magnifier.style.display = 'block';
+				}
+				//鼠标移出遮罩层
+				mark.onmouseleave = function(){
+					go.style.display = 'none';
+					magnifier.style.display = 'none';
+				}
+				//鼠标移动     滑块移动
+				mark.onmousemove = function(evt){
+					let e = evt || window.event;
+					let left = e.offsetX - go.offsetWidth / 2;
+					let top = e.offsetY - go.offsetHeight / 2;
+					//设置边界
+					if(left <= 0){
+						left = 0;
+					}else if(left >= mark.offsetWidth-go.offsetWidth){
+						left = mark.offsetWidth-go.offsetWidth;
+					}
+					if(top <= 0){
+						top = 0;
+					}else if(top >= mark.offsetHeight - go.offsetHeight){
+						top = mark.offsetHeight - go.offsetHeight;
+					}
+					go.style.left = left + 'px';
+					go.style.top = top + 'px';
+					//滑块移动比例   （滑块当前位置/滑块能移动的宽度）
+					let PX = go.offsetLeft / (mark.offsetWidth - go.offsetWidth);
+					let PY = go.offsetTop / (mark.offsetHeight - go.offsetHeight);
+					//大图比例
+					bigPics[index].style.left = PX * (magnifier.offsetWidth - bigPics[0].offsetWidth) + 'px';
+					bigPics[index].style.top = PY * (magnifier.offsetHeight - bigPics[0].offsetHeight) + 'px';
+				}
+			</script>
+</body>
+</html>

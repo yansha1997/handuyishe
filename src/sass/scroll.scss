@@ -1,0 +1,78 @@
+@import 'common';
+#pro2-content{
+    min-height:500px;
+    .left{
+        float:left;
+//      position:relative;
+       .magnifier{
+           width:310px;
+           height:430px;
+           overflow: hidden;
+           position:absolute;
+           top:0;
+           left:450px;
+           display:none;
+           li{
+               position:absolute;
+               left:0;
+               top:0;
+           }
+           
+       }
+       
+        .big{
+            width:400px;
+            height:430px;           
+            border:1px solid #ccc;
+            position:relative;
+
+            li{
+                position: absolute;
+                left:50px;
+                top:0;
+                img{
+                    width:300px;
+                    height:430px;
+                }
+            }
+            #lt-mark{
+               width:300px;
+               height:430px;
+               left:50px;
+               position: absolute;
+               z-index:100;
+            }
+            .go{
+                width:90px;
+                height:120px;
+                background:rgba(200,200,0,.4);
+                position:absolute;
+                left:50px;
+                top:0;
+                display:none;
+                z-index:10;
+            }
+        }
+        .big>img{
+            position:absolute;
+            right:0;
+            bottom:0;
+        }
+        .small{
+            height:50px;
+            width:400px;
+            li{ 
+                float:left;
+                margin:12px;             
+                img{
+                    padding:0 5px;
+                    width:45px;
+                    height:60px;
+                }
+            }
+            li:nth-child(5){
+                border:1px solid #000;
+            }
+        }
+    }
+}

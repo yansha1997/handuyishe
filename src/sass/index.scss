@@ -1,0 +1,281 @@
+@import 'public';
+//版心
+$icons :#banner #head1 #product #head2;
+@each $i in $icons{
+    #{$i}-content{
+        width:1150px;
+        margin:0px auto;
+    }
+}
+//banner图
+#banner{
+    overflow:hidden;
+    #banner-content{
+        position:relative;
+        height:880px;
+        .pic{
+            position:absolute;
+            height:740px;
+            width:3840px;
+            left:0;
+            top:0;
+            $cols : 2;
+            @for $i from 1 through $cols{
+                img:nth-child(#{$i}){             
+                    float:left;
+                }
+            }
+            img:nth-child(1){
+                margin-left:-385px;
+            }
+        }
+        span{
+            position:absolute;
+            z-index:10;
+            top:300px;
+            opacity:0;
+        }
+        #leftbtn{
+            left:5px;
+        }
+        #rightbtn{
+            right:5px;
+        }
+        ul{
+            li{
+                width:14px;
+                height:14px;
+                border-radius: 50%;
+                background:dimgray;
+                position:absolute;
+                bottom:0;
+            }
+            li:first-child{
+                left:530px;
+            }
+            li:nth-child(2){
+                left:570px;
+            }
+        }       
+    }
+}
+//商品上面  搜索栏
+#head2-content{
+    height:60px;
+    padding-bottom:10px;
+    input{
+        margin-top:30px;
+        float:left; 
+        width:120px;
+        border-bottom:1px solid #000;
+        padding:5px;         
+    }
+   img{
+       float:left;
+       margin-top:35px;
+       width:18px;
+   }
+   ul{
+       float:right;
+       li{
+           float:left;
+           margin:25px 20px 0;
+           font-size:14px;
+           line-height:26px;
+       }
+       li:hover{
+           border-bottom:1px solid #000;
+       }
+   }
+}
+//商品
+#product{
+    border:solid #ccc;
+    border-width:1px 0 0;
+    #product-content{
+        min-height:2000px;
+        margin-bottom:100px;
+        //所有标题的样式
+        h1{
+            img{
+                margin:0 auto;
+            }  
+        }
+        //  进入下一页的按钮     带边框的
+        p{
+            width:160px;
+            height:18px;
+            border:1px solid gray;
+            padding:10px;
+        }
+        //1
+        .pro1{
+            min-height:900px;
+            position:relative;
+            //商品图片下的公共样式
+            span{
+                margin-top:20px;
+                display:block;
+                line-height:50px;
+                font-size:16px;
+            }
+            span:first-line{
+                font-size:28px;
+            }
+            //1   左
+           .left{
+                float:left;
+                .ltbox{
+                    left:0;
+                    width:560px;
+                    height:770px;
+                    overflow: hidden;
+                    position:relative;
+                    .scale{
+                        position:absolute;
+                        left:0;
+                        top:0;
+                    }
+                }
+            }
+            //2 右
+            .right{
+                float:left;
+                margin-left:60px;
+               .top{
+                   margin-bottom:40px;
+                   width:500px;
+                   height:280px;
+                   overflow: hidden;
+                   position: relative;                  
+               }
+               .bottom{
+                   width:500px;
+                   height:280px;
+                   overflow: hidden;
+                   position: relative;
+               }
+               .scale2{
+                   position: absolute;
+                   left:0;
+                   top:0;
+               }
+            }
+       }
+       //下列商品     鼠标滑过    图片变文字    公共模块
+       .box1{
+           height:26px;
+           position: relative;
+           margin:25px 0;
+           img,b{
+               position: absolute;
+               left:0;
+               top:0;
+           }
+           b{
+               opacity:0;
+               font-size:26px;
+               line-height:26px;
+           }
+        }
+       //2
+       h2{
+           overflow:hidden;
+           position:relative;
+           height:20px;
+           img{
+               position:absolute;
+              left:-385px;
+           }
+       }
+       .pro2{
+           
+           span{
+               line-height:40px;
+           }
+           p{
+               margin-top:20px;
+           }
+       }
+       //3
+       .pro3{
+           min-height:500px;
+           padding-bottom:40px;
+           section{
+               float:left;
+               margin:40px 25px 0 0;
+               p{
+                    margin-top:20px;
+                }
+           }
+       }
+       //4
+       .pro4{
+           .left,.right{
+               float:left;
+               margin:10px;
+           }
+           .right{
+               width:340px;
+               overflow: hidden;
+               ul{
+                   overflow: hidden;
+                   width:400%;
+                   height:440px;
+                   position:relative;
+                   left:0;
+                   top:0;
+                   div{
+                       position: absolute;
+                       left:0;
+                       bottom:0;
+                       z-index:10;
+                       .lt,.rt{
+                           width:28px;
+                           height:31px;
+                           position:absolute;
+                           z-index:100;
+                           top:0;
+                       }
+                       .lt{
+                           left:0;
+                       }
+                       .rt{
+                           right: 0;
+                       }
+                   }
+                   li{
+                       float:left;
+                   }
+               }
+                ol{
+                   overflow: hidden;
+                   width:340px;
+                   height:90px;
+                   position:relative;
+                   li{
+                       height:80px;
+                       padding-top:20px;
+                       width:100%;
+                       position:absolute;
+                       left:0;
+                       color:gray;
+                       line-height:40px;
+                       font-size:$fontSize;
+                   }
+                   li:first-line{
+                       color:#000;
+                       font-weight:800;
+                       font-size:20px;
+                   }
+                   $col : 3;
+                    @for $i from 1 through $col{
+                        li:nth-child(#{$i}){
+                            top:#{($i - 1) * 90}px;
+                        }
+                    }
+               }
+           }
+       }
+    }
+}

@@ -1,0 +1,50 @@
+@import 'common';
+@import 'public';
+//版心
+//$icons :#carList;
+//@each $i in $icons{
+//  #{$i}-content{
+//      width:1150px;
+//      margin:0px auto;
+//  }
+//}
+#carList{
+    width: 1150px;
+    margin:0px auto;           
+    .carHead{
+        height: 40px;
+        width:1150px;     
+        background:#ccc;
+        li{
+            width: 140px;
+            height: 40px;
+            float: left;
+            display:block;
+            font: 24px/40px "楷体";
+            text-align: center;
+        }
+    }
+    .goodInfo{
+        border: 1px solid #ccc;
+        border-top: 0;
+        height: 50px;      
+        li{
+            float: left;
+            width: 140px;
+            height: 50px;                     
+            font: 24px/50px "楷体";
+            text-align: center;
+            input{
+                width: 30px;
+                font: 30px/40px;
+                text-align: center;
+            }
+            img{
+                width: 40px;
+                height: 40px;
+                margin: 5px 43px 0;
+                text-align: center;
+            }
+        }        
+    }           
+}
